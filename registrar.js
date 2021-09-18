@@ -29,6 +29,7 @@ function registrar(e){
     }else{
         mostrar()
         guardar()
+        window.location.href = './#table'
     }
     
 }
@@ -54,7 +55,7 @@ function mostrar(){
     let mostrarEstudiantes = ''
     estudiantes.forEach((estudiantes, i)  => {
         mostrarEstudiantes += `
-            <tr>
+            <tr >
             <th scope="row">${estudiantes.numId}</th>
             <td>${estudiantes.nombre}</td>
             <td>${estudiantes.edad}</td>
