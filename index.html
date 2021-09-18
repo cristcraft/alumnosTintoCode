@@ -11,7 +11,7 @@
 <body>
     <div class="container-fluid d-flex flex-column aling-content-center">
         <h1>¡Bienvenido al formulario de registro de estudiantes de TintoCode!</h1>
-        <form action="">
+        <form action="" id="registrar">
             <div class="d-flex flex-column">
                 <div>
                     <label for="documento" class="form-label">N.Documento:</label>
@@ -21,10 +21,10 @@
                 </div>
 
                 <div>
-                    <label for="name" class="form-label">Nombre:</label>
+                    <label for="nombre" class="form-label">Nombre:</label>
                 </div>
                 <div>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del estudiante" required>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del estudiante" required>
                 </div>
 
                 <div>
@@ -76,7 +76,7 @@
                     <label for="ciudad" class="form-label">Ciudad:</label>
                 </div>
                 <div>
-                    <input type="email" name="ciudad" id="ciudad" class="form-control" placeholder="ciudad del estudiante" required>
+                    <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="ciudad del estudiante" required>
                 </div>
             </div>
 
@@ -84,7 +84,25 @@
                 <button class="btn btn-primary" type="submit">Registrar</button>
             </div>
         </form>
+
+        <div >
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Editar/Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEstudiantes"></tbody>
+            </table>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./registrar.js"></script>
 </body>
 </html>
