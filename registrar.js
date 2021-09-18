@@ -1,17 +1,19 @@
 let estudiantes = [];
+let existe = false
 
 
 let form = document.querySelector('#registrar')
 
 form.addEventListener('submit', registrar)
+
 if(localStorage){
     estudiantes = JSON.parse( localStorage.getItem('estudiantes')) || [];
     mostrar();
-    console.log(estudiantes)
 }
 
 function registrar(e){
     e.preventDefault()
+    
     estudiantes.push( {
         numId : form.querySelector('#documento').value,
         nombre : form.querySelector('#nombre').value,
@@ -20,14 +22,37 @@ function registrar(e){
         telefono : form.querySelector('#numero').value,
         ciudad : form.querySelector('#ciudad').value
     })
+
+    //let existe = estudianteExiste(estudiantes)
+    if(existe){
+        alert('El estudiante ya ha sido registrado anteriormente')
+    }else{
+        mostrar()
+        guardar()
+    }
     
-    mostrar()
-    guardar()
 }
+
+// function estudianteExiste(id){
+//     let repetido = 0
+//     console.log(id[0].numId)
+//     for(let i = 0; i < estudiantes.length; i++){
+//         if(id[i].numId in estudiantes){
+//             console.log('hay')
+//         }
+//     }
+
+//     if(repetido > 0){
+//         repetido = []
+//         return true
+//     }else{
+//         return false
+//     }
+// }
 
 function mostrar(){
     let mostrarEstudiantes = ''
-    estudiantes.forEach((estudiantes, index)  => {
+    estudiantes.forEach((estudiantes, i)  => {
         mostrarEstudiantes += `
             <tr>
             <th scope="row">${estudiantes.numId}</th>
@@ -37,14 +62,22 @@ function mostrar(){
             <td>${estudiantes.telefono}</td>
             <td>${estudiantes.ciudad}</td>
             <td class="d-flex justify-content-evenly">
-                <div class="btn btn-info">✏️</div>
-                <div class="btn btn-danger">X</div>
+                <button class="btn btn-info">✏️</button>
+                <button class="btn btn-danger" onClick="eliminar(${i})">X</button>
             </td>
             </tr>
         `
     })
 
     document.querySelector('#tablaEstudiantes').innerHTML = mostrarEstudiantes
+}
+
+function eliminar(id){
+    
+    delete estudiantes[id]
+    console.log(estudiantes[id])
+    guardar()
+    mostrar()
 }
 
 function guardar(){
