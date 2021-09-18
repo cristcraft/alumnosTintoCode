@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./form.css">
+    <title>Alumnos TintoCode</title>
+</head>
+<body>
+    <div class="container-fluid d-flex flex-column aling-content-center">
+        <h1>¡Bienvenido al formulario de registro de estudiantes de TintoCode!</h1>
+        <form action="">
+            <div class="d-flex flex-column">
+                <div>
+                    <label for="documento" class="form-label">N.Documento:</label>
+                </div>
+                <div>
+                    <input type="number" name="documento" id="documento" class="form-control" placeholder="Numero del documento de identidad" required>
+                </div>
+
+                <div>
+                    <label for="name" class="form-label">Nombre:</label>
+                </div>
+                <div>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del estudiante" required>
+                </div>
+
+                <div>
+                    <label for="edad" class="form-label">Edad:</label>
+                </div>
+                <div>
+                    <input type="number" name="edad" id="edad" class="form-control" placeholder="Edad del estudiante" required>
+                </div>
+
+                <div>
+                    <label for="genero" class="form-label">Genero:</label>
+                </div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Femenino
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                          Masculino
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                          Otro
+                        </label>
+                      </div>
+                </div>
+
+                <div>
+                    <label for="correo" class="form-label">Correo:</label>
+                </div>
+                <div>
+                    <input type="email" name="correo" id="correo" class="form-control" placeholder="Correo del estudiante" required>
+                </div>
+
+                <div>
+                    <label for="numero" class="form-label">Numero de telefono:</label>
+                </div>
+                <div>
+                    <input type="number" name="numero" id="numero" class="form-control" placeholder="Numero del estudiante" required>
+                </div>
+
+                <div>
+                    <label for="ciudad" class="form-label">Ciudad:</label>
+                </div>
+                <div>
+                    <input type="email" name="ciudad" id="ciudad" class="form-control" placeholder="ciudad del estudiante" required>
+                </div>
+            </div>
+
+            <div class="btn">
+                <button class="btn btn-primary" type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
