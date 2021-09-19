@@ -2,9 +2,12 @@ let estudiantes = [];
 let existe = false
 
 
-let form = document.querySelector('#registrar')
-
+let form = document.querySelector('#formulario')
 form.addEventListener('submit', registrar)
+let btnEditar = document.querySelector('#editar')
+
+
+
 
 if(localStorage){
     estudiantes = JSON.parse( localStorage.getItem('estudiantes')) || [];
@@ -22,7 +25,7 @@ function registrar(e){
         telefono : form.querySelector('#numero').value,
         ciudad : form.querySelector('#ciudad').value
     })
-
+    console.log(estudiantes)
     //let existe = estudianteExiste(estudiantes)
     if(existe){
         alert('El estudiante ya ha sido registrado anteriormente')
@@ -54,6 +57,7 @@ function registrar(e){
 function mostrar(){
     let mostrarEstudiantes = ''
     estudiantes.forEach((estudiantes, i)  => {
+
         mostrarEstudiantes += `
             <tr >
             <th scope="row">${estudiantes.numId}</th>
@@ -63,20 +67,43 @@ function mostrar(){
             <td>${estudiantes.telefono}</td>
             <td>${estudiantes.ciudad}</td>
             <td class="d-flex justify-content-evenly">
-                <button class="btn btn-info">✏️</button>
+                <button class="btn btn-info" onClick="llenarFormulario(${i})" >✏️</button>
                 <button class="btn btn-danger" onClick="eliminar(${i})">X</button>
             </td>
             </tr>
         `
+        
     })
 
     document.querySelector('#tablaEstudiantes').innerHTML = mostrarEstudiantes
 }
 
-function eliminar(id){
+function llenarFormulario(id){
+    //cambiar boton enviar por editar
+    form.querySelector('#registrar').classList.add('d-none')
+    form.querySelector('#editar').classList.remove('d-none')
+
+    form.querySelector('#documento').value = estudiantes[id].numId
+    form.querySelector('#nombre').value = estudiantes[id].nombre
+    form.querySelector('#edad').value = estudiantes[id].edad
+    form.querySelector('#correo').value = estudiantes[id].correo
+    form.querySelector('#numero').value = estudiantes[id].telefono
+    form.querySelector('#ciudad').value = estudiantes[id].ciudad
+
     
-    delete estudiantes[id]
-    console.log(estudiantes[id])
+
+}
+btnEditar.addEventListener('click', editar(1))
+
+function editar(id){
+    
+    guardar()
+    mostrar()
+}
+
+function eliminar(id){
+    estudiantes1 = estudiantes.splice(id, 1)
+    
     guardar()
     mostrar()
 }
