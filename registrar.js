@@ -20,6 +20,7 @@ function registrar(e){
     estudiantes.push( {
         numId : form.querySelector('#documento').value,
         nombre : form.querySelector('#nombre').value,
+        apellido : form.querySelector('#apellido').value,
         edad : form.querySelector('#edad').value,
         correo : form.querySelector('#correo').value,
         telefono : form.querySelector('#numero').value,
@@ -62,6 +63,7 @@ function mostrar(){
             <tr >
             <th scope="row">${estudiantes.numId}</th>
             <td>${estudiantes.nombre}</td>
+            <td>${estudiantes.apellido}</td>
             <td>${estudiantes.edad}</td>
             <td>${estudiantes.correo}</td>
             <td>${estudiantes.telefono}</td>
@@ -85,6 +87,7 @@ function llenarFormulario(id){
 
     form.querySelector('#documento').value = estudiantes[id].numId
     form.querySelector('#nombre').value = estudiantes[id].nombre
+    form.querySelector('#apellido').value = estudiantes[id].apellido
     form.querySelector('#edad').value = estudiantes[id].edad
     form.querySelector('#correo').value = estudiantes[id].correo
     form.querySelector('#numero').value = estudiantes[id].telefono
